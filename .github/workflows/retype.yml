@@ -10,17 +10,11 @@ jobs:
     name: Publish to retype branch
 
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: redteam_cookbook
         
     steps:
       - uses: actions/checkout@v2
 
       - uses: retypeapp/action-build@v1
-        with:
-          working-directory: redteam_cookbook
           
       - uses: retypeapp/action-github-pages@v1
         with:
