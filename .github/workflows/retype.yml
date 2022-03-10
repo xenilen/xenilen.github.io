@@ -5,12 +5,16 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: redteam_cookbook
+
 jobs:
   publish:
     name: Publish to retype branch
 
     runs-on: ubuntu-latest
-
+        
     steps:
       - uses: actions/checkout@v2
 
@@ -19,3 +23,10 @@ jobs:
       - uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
+          
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            Cookbook:
+              - 'redteam_cookbook/**'
