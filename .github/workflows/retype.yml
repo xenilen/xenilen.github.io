@@ -15,10 +15,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - uses: retypeapp/action-build@v1
-        with:
-          config: redteam_cookbook
 
       - uses: retypeapp/action-github-pages@v1
         with:
           update-branch: true
-          
+          directory: redteam_cookbook
